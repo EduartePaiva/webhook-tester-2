@@ -1,0 +1,22 @@
+{
+    "name": "@webhook-tester/eslint-config",
+    "type": "module",
+    "version": "1.0.0",
+    "private": "true",
+    "description": "Eslint shared config",
+    "author": "Eduarte",
+    "license": "MIT",
+    "keywords": [],
+    "exports": {
+        ".": "./eslint.config.js",
+        "./create-config": "./create-config.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^3.12.1",
+        "eslint": "^9.17.0",
+        "eslint-plugin-format": "^0.1.3"
+    }
+}
