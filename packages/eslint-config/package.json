@@ -12,7 +12,8 @@
         "./create-config": "./create-config.js"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^3.12.1",
