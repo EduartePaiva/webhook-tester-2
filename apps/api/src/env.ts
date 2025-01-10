@@ -5,6 +5,11 @@ config();
 
 const envScheme = z.object({
     DB_URL: z.string().min(1),
+    DB_MIGRATING: z
+        .string()
+        .refine(s => s === "true" || s === "false")
+        .transform(s => s === "true")
+        .optional(),
     ACCEPT_NEW_USERS: z.string(),
     ACCESS_TOKEN_SECRET: z.string().min(1),
     EMAIL_TOKEN_SECRET: z.string().min(1),
@@ -14,13 +19,11 @@ const envScheme = z.object({
     WEBHOOK_URL: z.string().min(4),
 });
 
-export type envSchemaType = z.infer<typeof envScheme>;
-
 // eslint-disable-next-line node/no-process-env
 const parsedEnv = envScheme.safeParse(process.env);
-
 if (!parsedEnv.success) {
-    console.error(`❌ invalid env variables\n\n${parsedEnv.error.flatten()}`);
+    console.error("❌ Invalid env:");
+    console.error(parsedEnv.error.flatten().fieldErrors);
     process.exit(1);
 }
 
