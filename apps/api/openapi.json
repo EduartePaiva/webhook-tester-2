@@ -1,0 +1,40 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "description": "Open API documentation for webhook tester",
+        "title": "Webhook tester 2",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Eduarte",
+            "email": "eduarteoliveira2021@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://webhook.eduarte.pro/api",
+            "description": "Production server"
+        },
+        {
+            "url": "http://localhost:3000/api",
+            "description": "Development server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Slash path to the API",
+                "description": "Shows that the API works.",
+                "responses": {
+                    "200": {
+                        "description": "Returns a hello",
+                        "content": {
+                            "text/plain": {
+                                "example": "Hello from webhook tester"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
